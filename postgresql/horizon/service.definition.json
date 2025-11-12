@@ -1,0 +1,42 @@
+{
+    "org": "$HZN_ORG_ID",
+    "label": "$SERVICE_NAME for $ARCH",
+    "description": "postgres database service https://hub.docker.com/_/postgres",
+    "public": false,
+    "documentation": "https://github.com/open-horizon-services/service-postgresql",
+    "url": "$SERVICE_NAME",
+    "version": "$SERVICE_VERSION",
+    "arch": "$ARCH",
+    "sharable": "singleton",
+    "requiredServices": [],
+    "userInput": [
+        {
+                        "name": "POSTGRES_PASSWORD",
+                        "label": "Password file",
+                        "type": "string",
+                        "defaultValue": "postgres4AnyLog!"
+                },
+        {
+                        "name": "POSTGRES_USER",
+                        "label": "Username file",
+                        "type": "string",
+                        "defaultValue": "postgres"
+                },
+        {
+                        "name": "POSTGRES_DB",
+                        "label": "Database Name file",
+                        "type": "string",
+                        "defaultValue": "postgres"
+                }
+    ],
+    "deployment": {
+        "services": {
+            "$SERVICE_NAME": {
+                "image": "postgres:17.4",
+                "privileged": false,
+                "network": "host",
+                "binds":["/db-data/:/var/lib/postgresql/data/:rw"]
+            }
+        }
+    }
+}

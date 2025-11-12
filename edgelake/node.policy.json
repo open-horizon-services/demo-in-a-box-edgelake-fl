@@ -1,0 +1,17 @@
+{
+    "properties": [
+		{
+			"name": "openhorizon.allowPrivileged",
+			"value": true
+		},
+		{
+			"name": "purpose",
+			"value": "edgelake"
+		},
+		{
+			"name": "role",
+			"value": "federated-learning"
+		}
+],
+	"constraints": []
+}  
